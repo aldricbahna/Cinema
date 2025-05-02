@@ -16,8 +16,8 @@ if df is not None:
     fig_pie=px.pie(df,'Ciné',title="Vu au cinéma ?")
     st.plotly_chart(fig_pie)
 
-    fig_pie_avec=px.pie(df,'Avec',title="Avec ?")
-    st.plotly_chart(fig_pie_avec)
+    fig_treemap_avec = px.treemap(df, path=['Avec'], title="Vu avec ...")
+    st.plotly_chart(fig_treemap_avec)
 
 
     st.write("Aperçu du dataset :")

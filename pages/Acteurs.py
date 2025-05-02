@@ -5,9 +5,8 @@ from datetime import datetime,date, timedelta
 from data import load_data
 
 df = load_data()
-st.write(df.index.dtype)
-#st.set_page_config(layout="wide")
 
+#st.set_page_config(layout="wide")
 ## df Acteurs
 
 acteurs_series = df['Acteurs'].fillna('').str.split(',')

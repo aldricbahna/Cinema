@@ -5,12 +5,13 @@ import streamlit as st
 @st.cache_data #Important !! à revoir
 def load_data():
     df = pd.read_excel("BDD_FILMS.xlsx", index_col='Vu le', parse_dates=True)
-
+    df['Nom'] = df['Nom'].astype(str)
+    df['Sortie France'] = pd.to_datetime(df['Sortie France'])
     df['Jour semaine'] = df.index.strftime('%A')
     df['Numéro semaine']=df.index.isocalendar().week
-    df['Numéro jour']=df.index.day
-    df['Mois']=df.index.month
-    df['Année']=df.index.year
+    df['Numéro jour vu']=df.index.day
+    df['Mois vu']=df.index.month
+    df['Année vu']=df.index.year
     jours = {
         'Monday': 'lundi',
         'Tuesday': 'mardi',
