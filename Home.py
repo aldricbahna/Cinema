@@ -128,11 +128,6 @@ if df is not None:
     with d:
         st.plotly_chart(fig_treemap_avec)
 
-       
-    fig_hist_duree=px.histogram(dfs,x='Durée')
-    st.plotly_chart(fig_hist_duree)
-
-
 else:
     st.error("Impossible de charger les données.")
 
