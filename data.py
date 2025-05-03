@@ -37,7 +37,9 @@ def load_data():
                    'Nb nominations César':'Nominations Césars',   
                    'MVP Aldric':'MVP'})
     df_box_office=df[df['Box office fr']!='streaming']
-    df_box_office['Box office fr']=(df_box_office['Box office fr']/1000000).round(2)
+    df['Ciné num']=df['Ciné'].map(lambda x:1 if x=='oui' else 0)
+    df['Box office fr (M)']=(df['Box office fr']/1000000).round(2)
+    #df['Box office fr'] = pd.to_numeric(df['Box office fr'], errors='coerce')
     df['Letterbox']=df['Letterbox'].round(1)
     df['Sens Critique']=df['Sens Critique'].round(1)
     df['Année']=df['Sortie fr'].dt.year

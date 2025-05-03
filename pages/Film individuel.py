@@ -7,9 +7,6 @@ from data import load_data
 
 df = load_data()
 
-import streamlit as st
-import numpy as np
-
 noms_films=df['Nom'].sort_values().unique().tolist()
 nom_film = st.selectbox("Choisir un film", noms_films,index=noms_films.index('Le samouraï'))
 dfs=df[df['Nom']==nom_film]
