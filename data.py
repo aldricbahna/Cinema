@@ -36,6 +36,32 @@ def load_data():
                    'Nb Césars':'Césars',
                    'Nb nominations César':'Nominations Césars',   
                    'MVP Aldric':'MVP'})
+    
+    def decennie(annee):
+        if annee<1930:
+            return "20's"
+        elif annee<1940:
+            return "30's"
+        elif annee<1950:
+            return "40's"
+        elif annee<1960:
+            return "50's"
+        elif annee<1970:
+            return "60's"
+        elif annee<1980:
+            return "70's"
+        elif annee<1990:
+            return "80's"
+        elif annee<2000:
+            return "90's"
+        elif annee<2010:
+            return "2000's"
+        elif annee<2020:
+            return "2010's"
+        else:
+            return "2020's"
+    df['Décennie']=df['Sortie'].map(decennie)
+    
     df_box_office=df[df['Box office fr']!='streaming']
     df['Ciné num']=df['Ciné'].map(lambda x:1 if x=='oui' else 0)
     df['Box office fr (M)']=(df['Box office fr']/1000000).round(2)

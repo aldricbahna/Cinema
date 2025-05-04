@@ -121,18 +121,21 @@ else:
                   var_name='Type', 
                   value_name='Valeur')
     
-    df_genre = df.groupby('Genre principal')['Note'].agg(Médiane='median').reset_index()
-    genre_tries = df_genre.sort_values(by='Médiane', ascending=False)['Genre principal'].tolist()
-
-    fig = px.box(df_long, 
+    df_genre = df.groupby('Genre principal')['Note'].agg(Médiane='median',Nombre='count').reset_index()
+    df_genre_superieur_2=df_genre[df_genre['Nombre']>2]
+    genre_tries = df_genre_superieur_2.sort_values(by='Médiane', ascending=False)['Genre principal'].tolist()
+    df_long_superieur_2=df_long[df_long['Genre principal'].isin(genre_tries)]
+    df_long_superieur_2=df_long_superieur_2.replace('Note','Aldric')
+    fig = px.box(df_long_superieur_2, 
              x='Valeur', 
              y='Genre principal', 
              color='Type', 
-             color_discrete_map={'Note': 'blue', 'Eugénie': 'red'},
+             color_discrete_map={'Aldric': 'blue', 'Eugénie': 'red'},
              height=1000, 
-             category_orders={'Genre principal': genre_tries},
+             category_orders={'Genre principal': genre_tries,
+                              'Type': ['Eugénie', 'Aldric']},
              range_x=[0, 10],
-             title='Boxplot des notes et Eugénie pour chaque genre')
+             title='Boxplot des notes et Eugénie pour chaque genre (au moins 3 films)')
     
     st.plotly_chart(fig)
 
