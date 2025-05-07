@@ -57,8 +57,8 @@ else:
 
     fig_pie=px.pie(df_real_choisi,'Genre principal')
 
-    df_real_choisi_sortie=df_real_choisi.sort_values('Sortie fr')
-    fig_sortie=px.bar(df_real_choisi_sortie,x='Sortie fr',height=400)
+    df_real_choisi_sortie=df_real_choisi.sort_values('Sortie (France)')
+    fig_sortie=px.bar(df_real_choisi_sortie,x='Sortie (France)',height=400)
     fig_sortie.update_yaxes(dtick=1)
     fig_sortie.update_xaxes(range=[df['Sortie'].min(), date.today()],title_text='')
     fig_sortie.update_layout(title={
