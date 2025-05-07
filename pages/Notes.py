@@ -7,10 +7,7 @@ from data import load_data
 #st.set_page_config(layout="wide")
 df = load_data()
 
-
-st.dataframe(df)
-
-ajd= datetime.now()
+ajd= datetime.now().date() #format date
 j_moins_30 = ajd - timedelta(days=30)
 min_date_filtered = df.index.min()
 max_date_filtered = df.index.max()

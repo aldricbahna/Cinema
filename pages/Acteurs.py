@@ -40,7 +40,7 @@ fig.update_layout(bargap=1)
 
 metric_moyenne=df[df['Acteurs'].apply(lambda x: acteur_choisi in [a.strip() for a in x])]['Note'].mean().round(1)
 metric_std=df[df['Acteurs'].apply(lambda x: acteur_choisi in [a.strip() for a in x])]['Note'].std().round(1)
-nom_films=df[df['Acteurs'].apply(lambda x: acteur_choisi in [a.strip() for a in x])][['Nom','Sortie','Note']]
+nom_films=df[df['Acteurs'].apply(lambda x: acteur_choisi in [a.strip() for a in x])][['Nom','Sortie','Sortie (France)','Note']]
 nom_films.sort_index(ascending=False,inplace=True)
 
 ## df_acteur_choisi

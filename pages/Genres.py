@@ -77,8 +77,6 @@ if onglet=='Par genre':
         width=900
     )
 
-    df_filtered["Note_MA"] = df_filtered["Note"].rolling(window=f"{ecart_jours}D").mean()
-    df_filtered["Note_EWM"] = df_filtered["Note"].ewm(alpha=0.5).mean()
 
 
 
@@ -104,7 +102,7 @@ if onglet=='Par genre':
             st.metric("Note moyenne :",f"{df_filtered['Eugénie'].mean():.2f}")
             st.metric("Ecart-type :",f"{df_filtered['Eugénie'].std():.2f}")
 
-    st.dataframe(df_filtered[['Nom', 'Année', 'Pays','Note à chaud', 'Note', 'Eugénie','Box office fr (M)']])
+    st.dataframe(df_filtered[['Nom', 'Sortie', 'Sortie (France)','Pays','Note à chaud', 'Note', 'Eugénie','Box office fr (M)']])
 
     #fig4 = px.line(
         #df_filtered,

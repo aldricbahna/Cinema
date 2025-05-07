@@ -24,7 +24,17 @@ fig_bar_sortie_annees.update_layout(xaxis=dict(tickvals=tickvals))
 
 st.plotly_chart(fig_bar_sortie_annees)
 
-title = st.text_input("Année", "2025")
+title = st.text_input("Année", "1967")
 
 df_annee_affiche=df[df['Sortie']==title]
-st.dataframe(df_annee_affiche[['Nom','Sortie fr','Réalisateur','Note','Durée','Acteurs']])
+a,b=st.columns([4,1])
+with a:
+    st.dataframe(df_annee_affiche[['Nom','Sortie (France)','Réalisateur','Note','Durée','Acteurs']].sort_index(ascending=False))
+with b:
+    c,d=st.columns(2)
+    with d:
+        if df_annee_affiche.shape[0]>0:
+            if df_annee_affiche.shape[0]==1:
+                st.metric("Note moyenne",f"{df_annee_affiche['Note'].mean().round(1)}")
+            else:
+                st.metric("Note moyenne",f"{df_annee_affiche['Note'].mean().round(1)} ± {df_annee_affiche['Note'].std().round(1)}")

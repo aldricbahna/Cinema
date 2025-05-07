@@ -36,4 +36,4 @@ with col2:
         st.metric("Note moyenne :",f"{dfs['Eugénie'].mean():.2f}")
         st.metric("Ecart-type :",f"{dfs['Eugénie'].std():.2f}")
 
-st.dataframe(dfs[['Nom','Année','Sortie fr','Réalisateur','Note','Eugénie','Durée','Acteurs']].sort_values(by='Sortie fr',ascending=False))
+st.dataframe(dfs[['Nom','Sortie','Sortie (France)','Réalisateur','Note','Eugénie','Durée','Acteurs']].sort_values(by=['Sortie','Sortie (France)'],ascending=False))

@@ -6,6 +6,7 @@ import pandas as pd
 st.set_page_config(layout="wide")
 
 df = load_data()
+df.index = pd.to_datetime(df.index)
 
 if df is not None:
     a0,b0=st.columns([4,1])
@@ -16,8 +17,8 @@ if df is not None:
     st.subheader("N'hésitez pas à dezoomer et à mettre en plein écran pour plus de lisibilté")
 
     jours_semaine_ordre = ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche']
-    min_date = df.index.min().to_pydatetime() # pour convertir de datetime64[ns] à datetime.datetime nécessaire pour les slider
-    max_date = df.index.max().to_pydatetime()
+    min_date = df.index.min() # pour convertir de datetime64[ns] à datetime.datetime nécessaire pour les slider
+    max_date = df.index.max()
     ajd = datetime.now()
     ajd=ajd.replace(hour=0, minute=0, second=0, microsecond=0)
 

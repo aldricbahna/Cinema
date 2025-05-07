@@ -26,7 +26,7 @@ def load_data():
 
     df=df.rename(columns={'Note à froid':'Note',
                    "Sortie pays":'Sortie',
-                   'Sortie France': 'Sortie fr',
+                   'Sortie France': 'Sortie (France)',
                    'Pays de production':'Pays',
                    'Budget (M€)':'Budget euro',
                    'Budget (M$)':'Budget dollar',
@@ -68,8 +68,9 @@ def load_data():
     #df['Box office fr'] = pd.to_numeric(df['Box office fr'], errors='coerce')
     df['Letterbox']=df['Letterbox'].round(1)
     df['Sens Critique']=df['Sens Critique'].round(1)
-    df['Année']=df['Sortie fr'].dt.year
-    df['Sortie fr'] = pd.to_datetime(df['Sortie fr'], errors='coerce')
-    df['Sortie fr'] = df['Sortie fr'].dt.date
+    df['Année fr']=df['Sortie (France)'].dt.year
+    df['Sortie (France)'] = pd.to_datetime(df['Sortie (France)'], errors='coerce')
+    df['Sortie (France)'] = df['Sortie (France)'].dt.date
+    df.index=df.index.date
     df['Sortie']=df['Sortie'].astype('str')
     return df
