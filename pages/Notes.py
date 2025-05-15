@@ -5,7 +5,7 @@ from datetime import datetime,date, timedelta
 from data import load_data
 
 #st.set_page_config(layout="wide")
-df = load_data()
+df,dict_couleur = load_data()
 
 ajd= datetime.now().date() #format date
 j_moins_30 = ajd - timedelta(days=30)
@@ -90,9 +90,9 @@ with col2:
 #df_ordre=df.sort_values(by='Note',ascending=False)[['Nom', 'Réalisateur','Sortie','Note','Eugénie','Genre','Durée']]
 
 
-#c1,c2,c3,c4,c5,c6,c7,c8,c9,c10=st.columns(10)
+c1,c2,c3,c4,c5,c6,c7,c8,c9,c10=st.columns(10)
 
-'''with c1:
+with c1:
     st.image("Images/interstellar.jpg",width=200)
 with c2:
     st.image("Images/Kill Bill.webp",width=200)
@@ -111,4 +111,5 @@ with c8:
 with c9:
     st.image("Images/Les affranchis.jpg",width=200)
 with c10:
-    st.image("Images/Le parrain.webp",width=200)'''
+    st.image("Images/Le parrain.webp",width=200)
+

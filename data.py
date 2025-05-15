@@ -27,7 +27,6 @@ def load_data():
     df=df.rename(columns={'Note à froid':'Note',
                    "Sortie pays":'Sortie',
                    'Sortie France': 'Sortie (France)',
-                   'Pays de production':'Pays',
                    'Budget (M€)':'Budget euro',
                    'Budget (M$)':'Budget dollar',
                    'Box office France':'Box office fr',
@@ -63,6 +62,7 @@ def load_data():
     df['Décennie']=df['Sortie'].map(decennie)
     
     df_box_office=df[df['Box office fr']!='streaming']
+    df['Pays']=df['Pays de production'].str.split(',').apply(lambda x: x[0].strip())
     df['Ciné num']=df['Ciné'].map(lambda x:1 if x=='oui' else 0)
     df['Box office fr (M)']=(df['Box office fr']/1000000).round(2)
     #df['Box office fr'] = pd.to_numeric(df['Box office fr'], errors='coerce')
@@ -73,4 +73,21 @@ def load_data():
     df['Sortie (France)'] = df['Sortie (France)'].dt.date
     df.index=df.index.date
     df['Sortie']=df['Sortie'].astype('str')
-    return df
+
+    dict_couleur={'Etats-Unis':'red',
+                  'France':'mediumblue',
+                  'Italie':'limegreen',
+                  'Royaume-Uni':'lightblue',
+                  'Hong Kong':'gold',
+                  'Corée du Sud':'steelblue',
+                  'Canada':'orangered',
+                  'Japon':'pink',
+                  'Allemagne':'orange',
+                  "Allemagne de l'Ouest":'orange',
+                  'Australie':'olivedrab',
+                  'Suède':'yellow',
+                  'Iran':'darkkhaki',
+                  'URSS':'gainsboro'
+                  }
+
+    return df,dict_couleur

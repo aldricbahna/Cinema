@@ -5,7 +5,7 @@ import numpy as np
 from datetime import datetime,date, timedelta
 from data import load_data
 
-df = load_data()
+df,dict_couleur = load_data()
 
 annees=[i for i in range(1937,2027)]
 df_annees = pd.DataFrame(annees, columns=['Sortie'])

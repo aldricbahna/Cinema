@@ -4,7 +4,8 @@ import plotly.express as px
 from datetime import datetime,date, timedelta
 from data import load_data
 
-df = load_data()
+st.write("En développement, encore un peu de web-scraping à faire")
+df,dict_couleur = load_data()
 
 df.rename(columns={'Note':'Aldric'},inplace=True)
 

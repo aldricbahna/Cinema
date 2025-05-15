@@ -5,7 +5,7 @@ import numpy as np
 from datetime import datetime,date, timedelta
 from data import load_data
 
-df = load_data()
+df,dict_couleur = load_data()
 
 df_cine=df[df['Ciné'] =='oui']
 on = st.toggle("Au ciné")

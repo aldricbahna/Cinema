@@ -4,7 +4,7 @@ import plotly.express as px
 from datetime import datetime,date, timedelta
 from data import load_data
 
-df = load_data()
+df,dict_couleur = load_data()
 
 #st.set_page_config(layout="wide")
 ## df Acteurs
@@ -45,7 +45,7 @@ nom_films.sort_index(ascending=False,inplace=True)
 
 ## df_acteur_choisi
 
-df0 = load_data()
+df0,_ = load_data()
 #fig2=px.box(data_frame=df_acteurs,x='Note')
 df_acteur_choisi=df0[df0['Acteurs'].str.contains(acteur_choisi,case=False,na=False)]
 

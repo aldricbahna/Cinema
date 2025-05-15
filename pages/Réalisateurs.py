@@ -5,7 +5,7 @@ from datetime import datetime,date, timedelta
 from data import load_data
 
 
-df = load_data()
+df,dict_couleur = load_data()
 
 onglet = st.sidebar.radio(
     "Sous-onglets",

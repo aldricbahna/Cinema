@@ -5,7 +5,7 @@ from datetime import datetime,date, timedelta
 import pandas as pd
 st.set_page_config(layout="wide")
 
-df = load_data()
+df,dict_couleur = load_data()
 df.index = pd.to_datetime(df.index)
 
 if df is not None:

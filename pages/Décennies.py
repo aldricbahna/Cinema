@@ -4,7 +4,7 @@ import plotly.express as px
 from datetime import datetime,date, timedelta
 from data import load_data
 
-df = load_data()
+df,dict_couleur = load_data()
 
 decennie=st.selectbox("Choisissez une décennie", df['Décennie'].unique())
 dfs=df[df['Décennie']==decennie]

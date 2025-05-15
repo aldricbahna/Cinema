@@ -5,7 +5,7 @@ from data import load_data
 
 
 #st.set_page_config(layout="wide")
-df = load_data()
+df,dict_couleur = load_data()
 
 onglet = st.sidebar.radio(
     "Sous-onglets",
