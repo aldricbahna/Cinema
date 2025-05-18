@@ -48,7 +48,7 @@ st.plotly_chart(fig_bar_films_ratio_entrees_demarrage_fr)
 
 df_ratio_entrees_demarrage_negatif_fr=df_scrap.sort_values('Entrées/démarrage')
 fig_bar_films_ratio_entrees_demarrage_negatif_fr=px.bar(data_frame=df_ratio_entrees_demarrage_negatif_fr.head(n_bars),x='Nom',y='Entrées/démarrage',color='Pays',category_orders={'Nom': df_ratio_entrees_demarrage_negatif_fr['Nom'].tolist()},color_discrete_map=dict_couleur,
-                                                        title="Films dont le ratio Nombre d'entrée final en France / Démarrage 1ère semaine sont les plus faibles -> peu de bouche à oreille et/ou mauvaises critiques")
+                                                        title="Films dont le ratio Nombre d'entrée final en France / Démarrage 1ère semaine sont les plus faibles -> peu de bouche à oreille et/ou mauvaises critiques et/ou démarrage très élevé")
 st.plotly_chart(fig_bar_films_ratio_entrees_demarrage_negatif_fr)
 
 ## Ratio France Paris
