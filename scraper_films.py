@@ -19,7 +19,7 @@ def similar(a, b):
 films_non_trouves = []
 
 if __name__ == "__main__":
-    df = load_data()
+    df,_ = load_data()
 
     df['Démarrage USA']=''
     df['Box office USA']=''
@@ -92,8 +92,8 @@ if __name__ == "__main__":
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
     wait = WebDriverWait(driver, 10)
 
-            
-    for i in range(df.shape[0]):
+    row_number = df.index.get_loc(df[df['Nom'] == 'Garde à vue'].index[0])        
+    for i in range(row_number,df.shape[0]):
         try:
             nom_film=df.iloc[i]['Nom'].strip()
             sortie=df.iloc[i]['Sortie']
@@ -229,4 +229,4 @@ if __name__ == "__main__":
     driver.quit()
     print(films_non_trouves)
     df_scrap = df[[df.columns[0]] + list(df.columns[-11:])]
-    df_scrap.to_excel("BDD_scraping_ajout_fonctions.xlsx")
+    df_scrap.to_excel("BDD_scraping_temp.xlsx")
