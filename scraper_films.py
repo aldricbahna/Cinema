@@ -92,7 +92,7 @@ if __name__ == "__main__":
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
     wait = WebDriverWait(driver, 10)
 
-    row_number = df.index.get_loc(df[df['Nom'] == 'Garde à vue'].index[0])        
+    row_number = df.index.get_loc(df[df['Nom'] == 'Les Contes de la lune vague après la pluie'].index[0])        
     for i in range(row_number,df.shape[0]):
         try:
             nom_film=df.iloc[i]['Nom'].strip()
